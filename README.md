@@ -16,7 +16,6 @@
     <li><a href="#getting-started">Getting Started</a></li>
     <li><a href="#usage">Usage</a></li>
     <li><a href="#contributing">Contributing</a></li>
-    <li><a href="#license">License</a></li>
 </ul>
 
 <hr>
@@ -59,7 +58,8 @@
     <li>Haarcascade</li>
     <li>Tkinter</li>
     <li>SQLite</li>
-    <li>[Add more technologies used]</li>
+    <li>Pygame</li>
+ 
 </ul>
 
 <hr>
@@ -68,7 +68,7 @@
 
 <ol>
     <li>Clone the repository to your local machine.</li>
-    <pre><code>git clone https://github.com/yourusername/drowsiness-detection.git</code></pre>
+    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection.git</code></pre>
 <li>Install the required dependices using <a href="https://pip.pypa.io/en/stable/">Pip</a></li>
       <pre><code>pip install -r requirements.txt</code></pre>
 
@@ -101,7 +101,7 @@
 <ol>
     <li><strong>Fork the Repository:</strong> Click on the "Fork" button on the top right corner of this page.</li>
     <li><strong>Clone the Repository:</strong> Clone the forked repository to your local machine using:</li>
-    <pre><code>git clone https://github.com/yourusername/drowsiness-detection.git</code></pre>
+    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection.git</code></pre>
 <li><strong>Create a New Branch:</strong> Create a new branch for your contributions:</li>
     <pre><code>cd drowsiness-detection
 git checkout -b feature/new-feature</code></pre>
