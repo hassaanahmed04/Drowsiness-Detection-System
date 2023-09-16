@@ -6,7 +6,7 @@
 
 <body>
 
-<h1><a href="#top">Drowsiness Detection Application</a></h1>
+<h1><a href="#top">Drowsiness Detection System</a></h1>
 
 <h2>Table of Contents</h2>
 <ul>
@@ -41,7 +41,7 @@
 
 <ul>
     <li>User-friendly GUI powered by Tkinter for easy interaction.</li>
-    <ul><li>Credit goes to <a href="https://senngideons.blogspot.com/2022/12/python-tkinter-modern-gui-login-and.html">Senngidions</a></li></ul>
+    <ul><li>Credit goes to <a href="https://senngideons.blogspot.com/2022/12/python-tkinter-modern-gui-login-and.html" target="_blank">Senngidions</a></li></ul>
     <li>Real-time facial and eye detection using OpenCV's Haar cascades.</li>
     <li>Alerts for short and prolonged periods of drowsiness.</li>
     <li>Continuous monitoring and alarm activation to prevent accidents.</li>
@@ -69,8 +69,8 @@
 
 <ol>
     <li>Clone the repository to your local machine.</li>
-    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection.git</code></pre>
-<li>Install the required dependices using <a href="https://pip.pypa.io/en/stable/">Pip</a></li>
+    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection-system.git</code></pre>
+<li>Install the required dependices using <a href="https://pip.pypa.io/en/stable/" target="_blank">Pip</a></li>
       <pre><code>pip install -r requirements.txt</code></pre>
 
 </ol>
@@ -81,7 +81,7 @@
 
 <ol>
     <li>Navigate to the project directory.</li>
-    <pre><code>cd drowsiness-detection</code></pre>
+    <pre><code>cd drowsiness-detection-system</code></pre>
   <li>Launch the application by running the main script.</li>
     <pre><code>python account_system.py</code></pre>
     <li>Create an account.</li>
@@ -102,9 +102,9 @@
 <ol>
     <li><strong>Fork the Repository:</strong> Click on the "Fork" button on the top right corner of this page.</li>
     <li><strong>Clone the Repository:</strong> Clone the forked repository to your local machine using:</li>
-    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection.git</code></pre>
+    <pre><code>git clone https://github.com/hassaanahmed04/drowsiness-detection-system.git</code></pre>
 <li><strong>Create a New Branch:</strong> Create a new branch for your contributions:</li>
-    <pre><code>cd drowsiness-detection
+    <pre><code>cd drowsiness-detection-system
 git checkout -b feature/new-feature</code></pre>
 <li><strong>Make Changes:</strong> Make your desired changes and add, commit, and push to your forked repository :</li>
     
