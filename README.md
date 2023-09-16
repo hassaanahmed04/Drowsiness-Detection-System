@@ -41,6 +41,7 @@
 
 <ul>
     <li>User-friendly GUI powered by Tkinter for easy interaction.</li>
+    <ul><li>Credit goes to <a href="https://senngideons.blogspot.com/2022/12/python-tkinter-modern-gui-login-and.html">Senngidions</a></li></ul>
     <li>Real-time facial and eye detection using OpenCV's Haar cascades.</li>
     <li>Alerts for short and prolonged periods of drowsiness.</li>
     <li>Continuous monitoring and alarm activation to prevent accidents.</li>
