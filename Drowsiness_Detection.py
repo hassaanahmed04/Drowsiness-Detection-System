@@ -1,10 +1,8 @@
-
 '''
 Author: Hassaan Ahmed
 Date: August 10, 2023
 '''
-# Your code starts here...
-
+# Imports
 import numpy as np
 from pygame import mixer
 import time
@@ -16,6 +14,7 @@ import time
 import subprocess
 import os
 
+# Initialize Tkinter
 root = Tk()
 root.rowconfigure(0, weight=1)
 root.columnconfigure(0, weight=1)
@@ -26,64 +25,52 @@ window_y = (root.winfo_screenheight() // 4) - (window_height // 4)
 
 root.geometry('{}x{}+{}+{}'.format(window_width, window_height, window_x, window_y))
 
+# Create main frame
 main_frame = Frame(root, relief=RIDGE, borderwidth=2)
 main_frame.pack(fill=BOTH, expand=1)
 root.title('Drowsiness Monitoring System')
 main_frame.config(background='black')
 
+# Title Label
 title_label = Label(main_frame, text="Drowsiness Monitoring System", bg='black', fg="white", font=('Times 25 bold'))
 title_label.pack(side=TOP)
 
+# Background Image
 background_image = PhotoImage(file="./assets/image_1.png")
 background_label = Label(main_frame, image=background_image)
 background_label.pack(side=TOP)
 
+# Get user email from file
 with open("./Database/user_email.txt", "r") as email_file:
     user_email = email_file.read().strip()
 
-
-
+# Define close window behavior
 def close_window():
     root.destroy()
 
-
 root.protocol('WM_DELETE_WINDOW', close_window)
 
-
+# Define program exit
 def exit_program():
     exit()
 
-
-def webcam_detection():
-    cap = cv2.VideoCapture(0)
-    face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')
-    eye_glasses_cascade = cv2.CascadeClassifier('haarcascade_eye_tree_eyeglasses.xml')
-
-    while True:
-        ret, frame = cap.read()
-        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        faces = face_cascade.detectMultiScale(gray)
-
-        for (x, y, w, h) in faces:
-            font = cv2.FONT_HERSHEY_COMPLEX
-            cv2.putText(frame, 'Face', (x + w, y + h), font, 1, (250, 250, 250), 2, cv2.LINE_AA)
-            cv2.rectangle(frame, (x, y), (x + w, y + h), (255, 0, 0), 2)
-            roi_gray = gray[y:y + h, x:x + w]
-            roi_color = frame[y:y + h, x:x + w]
-
-            eye_g = eye_glasses_cascade.detectMultiScale(roi_gray)
-            for (ex, ey, ew, eh) in eye_g:
-                cv2.rectangle(roi_color, (ex, ey), (ex + ew, ey + eh), (0, 255, 0), 2)
-
-        cv2.imshow('frame', frame)
-        key = cv2.waitKey(1)
-
-        if key == 27:  # Press 'Esc' key to exit the loop
-            break
-    cap.release()
-    cv2.destroyAllWindows()
+# Your functions go here...
+def alert_sound():
+    mixer.init()
+    alert = mixer.Sound('beep-07.wav')
+    alert.play()
+    time.sleep(0.1)
+    alert.play()
 
 
+def alarm_sound():
+    mixer.init()
+    alarm = mixer.Sound('alarm.wav')
+    alarm.play()
+    time.sleep(2)
+    alarm.play()
+
+# Detect and Record button
 def webcam_detection_record():
     cap = cv2.VideoCapture(0)
     face_cascade = cv2.CascadeClassifier('lbpcascade_frontalface.xml')
@@ -121,27 +108,7 @@ def webcam_detection_record():
     cap.release()
     cv2.destroyAllWindows()
 
-
-def alert_sound():
-    mixer.init()
-    alert = mixer.Sound('beep-07.wav')
-    alert.play()
-    time.sleep(0.1)
-    alert.play()
-
-
-def alarm_sound():
-    mixer.init()
-    alarm = mixer.Sound('alarm.wav')
-    alarm.play()
-    time.sleep(2)
-    alarm.play()
-
-
-if not os.path.exists("videos"):
-    os.makedirs("videos")
-
-
+# Drowsiness Detection button
 def blink_detection():
     conn = sqlite3.connect("./Database/AccountSystem.db")
     cursor = conn.cursor()
@@ -213,22 +180,22 @@ def blink_detection():
     cap.release()
     cv2.destroyAllWindows()
 
-
+# Reports button
 def view_reports():
     subprocess.run(["python", "checkReports.py"])
 
-
+# User Management button (only available for admin)
 def manage_users():
     subprocess.run(["python", "manage.py"])
 
-
+# Logout button
 def logout_user():
     subprocess.Popen(["python", "account_system.py"])
     with open("./Database/user_email.txt", "w") as file:
         pass
     os._exit(0)
 
-
+# Buttons
 detect_record_button = Button(main_frame, padx=5, pady=5, width=39, bg='white', fg='black', relief=GROOVE,
                              command=webcam_detection_record, text='Detect & Record', font=('helvetica 15 bold'))
 detect_record_button.place(x=370, y=104)
@@ -250,4 +217,5 @@ logout_button = Button(main_frame, padx=5, pady=5, width=39, bg='black', fg='whi
                        text='Logout', command=logout_user, font=('helvetica 15 bold'))
 logout_button.place(x=370, y=600)
 
+# Start the main event loop
 root.mainloop()
